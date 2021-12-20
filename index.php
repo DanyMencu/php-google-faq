@@ -15,7 +15,7 @@ $db = [
         'question' => "Come fa Google a proteggere la mia privacy e a tenere le mie informazioni al sicuro?",
         'answere' => [
             "Sappiamo che la sicurezza e la privacy sono importanti per te e lo sono anche per noi. Per noi è imperativo offrire un'elevata sicurezza e assicurarti che le tue informazioni sono al sicuro e accessibili quando ne hai bisogno.",
-            "Siamo costantemente al lavoro per garantire un'elevata sicurezza, proteggere la tua privacy e rendere Google ancora più efficace ed efficiente per te. Spendiamo centinaia di milioni di dollari ogni anno per la sicurezza e ci avvaliamo di esperti di fama mondiale in materia di sicurezza dei dati per mantenere le tue informazioni al sicuro. Abbiamo inoltre sviluppato strumenti per la sicurezza e la privacy di facile utilizzo come Google Dashboard, la verifica in due passaggi e Impostazioni annunci. Così, per quanto riguarda le informazioni che condividi con Google, hai il massimo controllo.","Puoi leggere ulteriori informazioni sulla sicurezza online, incluso come proteggere te e la tua famiglia online, nel Centro Google per la sicurezza online.",
+            "Siamo costantemente al lavoro per garantire un'elevata sicurezza, proteggere la tua privacy e rendere Google ancora più efficace ed efficiente per te. Spendiamo centinaia di milioni di dollari ogni anno per la sicurezza e ci avvaliamo di esperti di fama mondiale in materia di sicurezza dei dati per mantenere le tue informazioni al sicuro. Abbiamo inoltre sviluppato strumenti per la sicurezza e la privacy di facile utilizzo come Google Dashboard, la verifica in due passaggi e Impostazioni annunci. Così, per quanto riguarda le informazioni che condividi con Google, hai il massimo controllo.", "Puoi leggere ulteriori informazioni sulla sicurezza online, incluso come proteggere te e la tua famiglia online, nel Centro Google per la sicurezza online.",
             "Scopri quali misure adottiamo per garantire protezione e sicurezza alle tue informazioni personali, lasciando a te il controllo.",
         ]
     ],
@@ -31,9 +31,11 @@ $db = [
     ],
     [
         'question' => "Stabilire il paese associato al tuo account",
-        'answere' => ["Quando crei un nuovo Account Google, lo associamo a un paese in base a dove è stato creato. Per quanto riguarda gli account creati almeno un anno fa, usiamo il paese da cui accedi solitamente ai servizi Google, in genere i servizi in cui hai trascorso più tempo nell'ultimo anno.",
-        "I viaggi frequenti solitamente non influiscono sul paese associato al tuo account. Se ti trasferisci in un altro paese, potrebbe occorrere circa un anno per aggiornare l'associazione del paese.",
-        "Se il paese associato al tuo account non corrisponde al tuo paese di residenza, il motivo potrebbe essere la differenza tra il paese in cui lavori e il paese in cui risiedi, l'installazione di una rete privata virtuale (VPN) per mascherare il tuo indirizzo IP oppure la residenza vicino a un confine territoriale. Contattaci se ritieni che il paese associato al tuo account sia sbagliato.",]
+        'answere' => [
+            "Quando crei un nuovo Account Google, lo associamo a un paese in base a dove è stato creato. Per quanto riguarda gli account creati almeno un anno fa, usiamo il paese da cui accedi solitamente ai servizi Google, in genere i servizi in cui hai trascorso più tempo nell'ultimo anno.",
+            "I viaggi frequenti solitamente non influiscono sul paese associato al tuo account. Se ti trasferisci in un altro paese, potrebbe occorrere circa un anno per aggiornare l'associazione del paese.",
+            "Se il paese associato al tuo account non corrisponde al tuo paese di residenza, il motivo potrebbe essere la differenza tra il paese in cui lavori e il paese in cui risiedi, l'installazione di una rete privata virtuale (VPN) per mascherare il tuo indirizzo IP oppure la residenza vicino a un confine territoriale. Contattaci se ritieni che il paese associato al tuo account sia sbagliato.",
+        ]
     ],
 ];
 ?>
@@ -45,25 +47,73 @@ $db = [
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" integrity="sha512-Fo3rlrZj/k7ujTnHg4CGR2D7kSs0v4LLanw2qksYuRlEzO+tcaEPQogQ0KaoGN26/zrn20ImR1DfuLWnOo7aBA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <title>Google Faq</title>
+    <!-- CSS -->
     <link rel="stylesheet" href="./CSS/style.css">
 </head>
 
 <body>
-    <header></header>
+    <header>
+        <div class="row">
+            <!-- Logo -->
+            <div class="logo-section">
+                <!-- IMG -->
+                <a href="https://www.google.com/">
+                    <img src="./IMG/google-logo.png" alt="Google logo">
+                </a>
+                <!-- Title -->
+                <a href="https://policies.google.com/">
+                    <h1 class="title">Privacy e termini</h1>
+                </a>
+            </div>
+            <!-- Menu and avatar -->
+            <div class="personal-section">
+                <a href="#">
+                    <i class="fas fa-th icon"></i>
+                </a>
+                <div class="avatar-img">
+                    <img src="./IMG/img_avatar.png" alt="Personal image">
+                </div>
+            </div>
+        </div>
+        <!-- Links nav -->
+        <nav>
+            <ul>
+                <li>
+                    <a href="#">Introduzione</a>
+                </li>
+                <li>
+                    <a href="#">Norme sulla privacy</a>
+                </li>
+                <li>
+                    <a href="#">Termini di servizio</a>
+                </li>
+                <li>
+                    <a href="#">Tecnologie</a>
+                </li>
+                <li>
+                    <a class="active" href="#">Domande frequenti</a>
+                </li>
+            </ul>
+        </nav>
+    </header>
+
     <main class="container">
         <?php //Loop of Q&A
         foreach ($db as $faq) : ?>
             <div class="faq">
                 <h2 class="question"> <?php echo $faq['question'] ?></h2>
                 <div class="answere"> <?php foreach ($faq['answere'] as $paragraph) : ?>
-                    <p class="paragraph"> <?php echo $paragraph ?></p>
-                <?php endforeach ?>
-                 </div>
+                        <p class="paragraph"> <?php echo $paragraph ?></p>
+                    <?php endforeach ?>
+                </div>
             </div>
         <?php endforeach ?>
 
     </main>
+    
     <footer></footer>
 </body>
 
