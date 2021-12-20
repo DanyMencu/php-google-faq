@@ -108,3 +108,10 @@ main {
 .paragraph {
     padding: 0.5rem 0;
 }
+
+/* Footer */
+
+footer{
+    height: 50px;
+    background-color: #ccc;
+}
